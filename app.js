@@ -20,5 +20,5 @@ request({url:url,json:true},(error,response)=>{
     const data =response.body;
     //chalenge 0.0.1
     console.log(`${data.current.weather_descriptions} The current temperature of ${data.location.name} is 
-    ${data.current.temperature} and humidity is  ${data.current.humidity}`);
+    ${data.current.temperature} degree celcius and humidity is  ${data.current.humidity}`);
 })
