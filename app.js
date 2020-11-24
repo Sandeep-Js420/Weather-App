@@ -14,7 +14,7 @@
 ///////////////////////////////////////////////////////////////////
 
 const request = require("request")
-const url='http://api.weatherstack.com/current?access_key=c548fbf2bfe9142ecf3873789034cb57&query=20.2961,85.8245';
+const url='http://api.weatherstack.com/current?access_key=c548fbf2bfe9142ecf3873789034cb57&query=20.2961,85.8245&units=s';
 request({url:url,json:true},(error,response)=>{
     // console.log(response);
     const data =response.body;
