@@ -1,0 +1,5 @@
+http Request..
+For accesing current Weather data we have to use some API.so  i am gonna use weatherstack API.
+
+just go to browser in search bar type following url
+http://api.weatherstack.com/current?key=value&key=value
