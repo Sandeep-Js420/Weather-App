@@ -26,14 +26,23 @@ const forecast=require('./utils/Forecast');
  * */ 
 
 
+
+//Now Apply this concept on Weather-app
+//Goal use both destructuring and property short hand property in weather app
+//use destructuring on app.js,Forecast.js,geocode.js
+//use property shorthand in Forecast.js,and geocode.js
+//test your work.
+
+
+
  const address=process.argv[2];
 
  if(!address){
      console.log(`please provide the address`);
  }else{
   
-
- geocode(address,(error,data)=>{
+//Destructuring data object to {{longitude,latitude,location}}
+ geocode(address,(error,{longitude,latitude,location}={})=>{
     
     // console.log('Error :', error )
     // console.log(`response:`,data);
@@ -41,13 +50,13 @@ const forecast=require('./utils/Forecast');
        return console.log(error);
    }
   
-    forecast( data.longitude,data.latitude,(error,forecastData)=>{
+    forecast( longitude,latitude,(error,forecastData)=>{
        
        if (error){
            return console.log(error)
        }
        
-       console.log(data.location)
+       console.log(location)
        console.log(`Response:`,forecastData);
     })
      
