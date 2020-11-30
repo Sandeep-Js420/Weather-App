@@ -6,17 +6,65 @@ const forecast=require('./utils/Forecast');
 
 
 
-geocode('Bhubaneswar',(error,data)=>{
-    console.log('Error :', error )
-    console.log(`response:`,data);
+// geocode('Bhubaneswar',(error,data)=>{
+//     console.log('Error :', error )
+//     console.log(`response:`,data);
 
-})
+// })
 
 
-forecast( 20.26444,85.82806,(error,data)=>{
-    console.log(`Error:`, error);
-    console.log(`Response:`,data);
-})
+// forecast( 20.26444,85.82806,(error,data)=>{
+//     console.log(`Error:`, error);
+//     console.log(`Response:`,data);
+// })
+
+
+//vdo 39 callBack chainning. - pass a function inside a callback fuction for desired output.
+/** Target to show location and weather of that particular location 
+ * Customizing the hard code in to dynamic passing the data .
+ * 
+ * */ 
+
+
+ const address=process.argv[2];
+
+ if(!address){
+     console.log(`please provide the address`);
+ }else{
+  
+
+ geocode(address,(error,data)=>{
+    
+    // console.log('Error :', error )
+    // console.log(`response:`,data);
+   if(error){
+       return console.log(error);
+   }
+  
+    forecast( data.longitude,data.latitude,(error,forecastData)=>{
+       
+       if (error){
+           return console.log(error)
+       }
+       
+       console.log(data.location)
+       console.log(`Response:`,forecastData);
+    })
+     
+   })
+ 
+}//else
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -58,7 +106,7 @@ forecast( 20.26444,85.82806,(error,data)=>{
 //Making http request to mapbox api for getting the logitude and latitude
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-// const geocodeUrl="https://api.mapbox.com/geocoding/v5/mapbox.places/45ar.json?access_token=pk.eyJ1IjoicmVhY3Qtbm9kZS1qczIwMjAiLCJhIjoiY2todzEycjF1MGtlZDMxbW9wbXc3ZHFweCJ9.en8oY1Rqig5PI_331neBBA"
+// const geocodeUrl="https://api.mapbox.com/geocoding/v5/mapbox.places/Bhubaneswar.json?access_token=pk.eyJ1IjoicmVhY3Qtbm9kZS1qczIwMjAiLCJhIjoiY2todzEycjF1MGtlZDMxbW9wbXc3ZHFweCJ9.en8oY1Rqig5PI_331neBBA"
 
 // request({url:geocodeUrl,json:true},(error,response)=>{
 //     // console.log(response.body);

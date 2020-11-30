@@ -2,7 +2,7 @@ const request=require('request');
 
 const WeatherData=function(longitude,latitude,callback){
     
-    const weatherApiUrl='http://api.weatherstack.com/current?access_key=c548fbf2bfe9142ecf3873789034cb57&query='+longitude +','+latitude+'&units=s'
+    const weatherApiUrl='http://api.weatherstack.com/current?access_key=c548fbf2bfe9142ecf3873789034cb57&query='+longitude +','+latitude+''
      
     request({url:weatherApiUrl,json:true},(error,response)=>{
          if (error){
