@@ -1,5 +1,28 @@
 // //srction -6
 // //using weatherstack api
+const request = require("request")
+const geocode=require('./utils/geocode');
+const forecast=require('./utils/Forecast');
+
+
+
+geocode('Bhubaneswar',(error,data)=>{
+    console.log('Error :', error )
+    console.log(`response:`,data);
+
+})
+
+
+forecast( 20.26444,85.82806,(error,data)=>{
+    console.log(`Error:`, error);
+    console.log(`Response:`,data);
+})
+
+
+
+
+//just refer to utils folder both file .....
+
 // const request=require('request');
 // const url='http://api.weatherstack.com/current?access_key=c548fbf2bfe9142ecf3873789034cb57&query=20.2961,85.8245';
 
@@ -13,9 +36,6 @@
 // Making a HTTP request & customizing Http request 
 ///////////////////////////////////////////////////////////////////
 
-const request = require("request")
-const geocode=require('./utils/geocode');
-const forecast=require('./utils/Forecast');
 
 // const url='http://api.weatherstack.com/current?access_key=c548fbf2bfe9142ecf3873789034cb57&query=20.2961,85.8245&units=s';
 // request({url:url,json:true},(error,response)=>{
@@ -79,14 +99,3 @@ const forecast=require('./utils/Forecast');
 // }//geocode
 
 
-geocode('Bhubaneswar',(error,data)=>{
-    console.log('Error :', error )
-    console.log(`response:`,data);
-
-})
-
-
-forecast( 20.26444,85.82806,(error,data)=>{
-    console.log(`Error:`, error);
-    console.log(`Response:`,data);
-})
